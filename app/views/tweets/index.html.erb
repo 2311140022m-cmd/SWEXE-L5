@@ -16,4 +16,4 @@
 <%= link_to "ログイン",top_main_path %><br>
 <%= link_to "ログアウト",top_logout_path %><br>
 
-ログイン中UID: <%= session[:login_uid] %>
+ログイン中UID: <%= current_user.uid %>

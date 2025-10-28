@@ -8,13 +8,16 @@ class UsersController < ApplicationController
   end
   
   def create
-    User.create(uid: params[:user][:uid],pass:  params[:user][:pass])
+    u = User.create(uid: params[:user][:uid],
+      password: params[:user][:password],
+      password_confirmation: params[:user][:password_confirmation])
+    u.save  
     redirect_to users_path
   end
   
   def destroy
-    User.find(params[:id]).destroy
+    u = User.find(params[:id])
+    u.destroy
     redirect_to users_path
   end
-  
 end
